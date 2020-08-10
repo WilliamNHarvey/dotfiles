@@ -1,0 +1,12 @@
+#!/bin/bash
+
+read -p "Delete all local branches except master? (yN) " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    echo "Okay"
+    git branch | grep -v "master" | xargs git branch -D
+else
+    echo "Aborting"
+fi
+
